@@ -4,6 +4,9 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net8.0</TargetFramework>
         <PublishAot>true</PublishAot>
+        <Version>0.1.0</Version>
+        <Description>Phpie(Peachpie) Language Server</Description>
+        <Author>N0zzy</Author>
     </PropertyGroup>
 
     <ItemGroup>
