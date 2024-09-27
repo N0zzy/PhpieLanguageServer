@@ -1,9 +1,9 @@
 ﻿namespace PhpieLanguageServer.Analyze;
 
-public class CodeAnalyze: Analyzer
+public class FileAnalyze: Analyzer
 {
     public new static void Execute(string code)
     {
-        Analyze(code);
+        Analyze( code );
     }
 }
