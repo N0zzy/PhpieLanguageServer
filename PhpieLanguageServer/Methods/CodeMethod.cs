@@ -1,12 +1,18 @@
-﻿using PhpieLanguageServer.Analyze;
+﻿using PhpieLanguageServer.Peachpie;
 
 namespace PhpieLanguageServer.Methods;
 
-public class CodeMethod: BaseMethod
+public class CodeMethod: BaseMethod, IMethod
 {
-    public CodeMethod()
+    public void Execute()
     {
-        Method = "code";
-        CodeAnalyze.Execute( "");
+        var analyze = new Analyze()
+        {
+            Code = Message.Message,
+            File = Message.File
+        };
+        var errors = analyze.Run().Diagnose().Errors;
+        this.SetData(errors, out var data);
+        Data = data;
     }
 }

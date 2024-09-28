@@ -2,7 +2,7 @@
 #### Ip ```127.0.0.1```
 #### Port ```9999```
 
-Request Methods: 
+Request: 
 
 ```method: file``` open, read and analyze php file
 ```json
@@ -24,7 +24,12 @@ Request Methods:
 {"method":"shutdown", "message":null, "file":null}
 ```
 
-Response Methods:
+```method: hover```
+```json
+{"method":"hover", "message":null, "file":"/path/file.php", "position":"1-1"}
+```
+
+Response:
 
 ```method: ????????```
 ```json
@@ -43,10 +48,15 @@ Response Methods:
 
 ```method: code```
 ```json
-{"method":"code", "error":false, "message":"php code", "file":"/path/file.php", "start":"1-1", "end":"1-2"}
+{"method":"code", "error":false, "message":"text analysis", "file":"/path/file.php", "line":1, "start":"1-1", "end":"1-2"}
 ```
 
 ```method: file```
 ```json
-{"method":"file", "error":false, "message":"php code", "file":"/path/file.php", "start":"1-1", "end":"1-2"}
+{"method":"file", "error":false, "message":"text analysis", "file":"/path/file.php", "line":1, "start":"1-1", "end":"1-2"}
+```
+
+```method: hover```
+```json
+{"method":"hover", "error":false, "message":"text analysis", "file":"/path/file.php"}
 ```

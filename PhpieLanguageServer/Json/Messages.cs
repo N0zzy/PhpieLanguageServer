@@ -2,7 +2,7 @@
 
 namespace PhpieLanguageServer.Models;
 
-public class RequestMessage
+public class Messages
 {
     [JsonPropertyName("method")]
     public string Method { get; set; }

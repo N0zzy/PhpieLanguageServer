@@ -1,5 +1,4 @@
 ﻿using PhpieLanguageServer.Models;
-using PhpieLanguageServer.Server;
 
 namespace PhpieLanguageServer.Methods;
 
@@ -7,16 +6,21 @@ public abstract class BaseMethod
 {
     protected string Method { get; set; }
     protected bool Error { get; set; } = false;
-    protected string Result { get; set; } = "";
+
+    protected string Data { get; set; } = "";
     
-    public virtual string Output()
+    protected Messages Message { get; set; }
+    
+    public virtual string Result()
     {
         var error = Error ? "true" : "false";
-        return "{" + $"\"method\":\"{Method}\",\"error\":{error}" + Result + "}";
+        var data = Data.Length > 0 ? $",{Data}" : "";
+        return "{" + $"\"method\":\"{Method}\",\"error\":{error}{data}"+"}";
     }
-    
-    protected RequestMessage Input()
+
+    public void SetMessage(Messages msg)
     {
-        return Request.GetRequestMessage();
+        Message = msg;
+        Method = Message.Method;
     }
 }

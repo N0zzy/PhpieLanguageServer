@@ -1,12 +1,13 @@
 ﻿using System.Threading.Tasks;
+using PhpieLanguageServer.Server;
 
 namespace PhpieLanguageServer;
 
 public class Program {
     public static async Task Main(string[] args)
     {
-        UdpServer.Ip = "127.0.0.1";
-        UdpServer.Port = 9999;
-        await Task.Run(UdpServer.Run);
+        LanguageServer.Port = 9999;
+        LanguageServer.Debug = true;
+        await Task.Run(LanguageServer.Run);
     }
 }

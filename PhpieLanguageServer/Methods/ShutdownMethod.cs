@@ -1,9 +1,11 @@
-﻿namespace PhpieLanguageServer.Methods;
+﻿using PhpieLanguageServer.Server;
 
-public class ShutdownMethod: BaseMethod
+namespace PhpieLanguageServer.Methods;
+
+public class ShutdownMethod: BaseMethod, IMethod
 {
-    public ShutdownMethod()
+    public void Execute()
     {
-        Method = "shutdown";
+        LanguageServer.Stop();
     }
 }

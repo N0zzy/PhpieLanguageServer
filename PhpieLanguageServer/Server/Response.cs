@@ -1,18 +1,16 @@
-﻿using System.Text.Json;
-
-namespace PhpieLanguageServer.Server;
+﻿namespace PhpieLanguageServer.Server;
 
 public class Response
 {
-    private static string _message;
+    private string _response { get; set; }
     
-    public static void Add(string message)
+    public void Set(string response)
     {
-        _message = message;
+        _response = response;
     }
     
-    public static string Get()
+    public string Get()
     {
-        return _message;
+        return _response;
     }
 }
